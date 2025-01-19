@@ -1,0 +1,14 @@
+{
+    "name": "serve-html-files",
+    "module": "index.ts",
+    "type": "module",
+    "scripts": {
+        "start": "bun --hot ."
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5.0.0"
+    }
+}
