@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>File Links</title>
+        <style>
+            a {
+                display: block;
+                margin: 10px 0;
+                color: #0066cc;
+                text-decoration: none;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="links-container"></div>
+
+        <script>
+            async function fetchAndDisplayLinks() {
+                try {
+                    const response = await fetch("/api/files");
+                    const data = await response.json();
+
+                    const container = document.getElementById("links-container");
+
+                    data.files.forEach((file) => {
+                        const link = document.createElement("a");
+                        link.href = file;
+                        link.textContent = file;
+                        container.appendChild(link);
+                    });
+                } catch (error) {
+                    console.error("Error fetching files:", error);
+                }
+            }
+
+            fetchAndDisplayLinks();
+        </script>
+    </body>
+</html>
